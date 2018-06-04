@@ -159,7 +159,7 @@ My final lane detection functions can be found in the cell **Lane detection help
 
 After a histogram based detection of the two starting points for left and right lane, several search windows are arranged starting from the lower edge of the image. Within these search windows, all detected pixels are fed into a polynomial fit   for the function 
 
-$$ f(y) = A\cdot y^2 + B\cdot y + C $$
+![equation](http://latex.codecogs.com/gif.latex?f%28y%29%20%3D%20A%5Ccdot%20y%5E2%20&plus;%20B%5Ccdot%20y%20&plus;%20C)
 
 This is done for both lines independently. 
 
@@ -194,9 +194,13 @@ Curve radius code lines can be found as function `curve_radius(left_fit_m, right
 
 I calculated the lines based on the results of the function fit. The following equation was applied: 
 
-$$ Radius [m] = \frac{(1 + (2 \cdot A \cdot y \cdot c_y + B )^2)^{1.5}}{ | 2 \cdot A  |} $$ 
+![equation](http://latex.codecogs.com/gif.latex?Radius%20%5Bm%5D%20%3D%20%5Cfrac%7B%281%20&plus;%20%282%20%5Ccdot%20A%20%5Ccdot%20y%20%5Ccdot%20c_y%20&plus;%20B%20%29%5E2%29%5E%7B1.5%7D%7D%7B%20%7C%202%20%5Ccdot%20A%20%7C%7D)
 
-with $$ c_y = \frac{30}{720} $$ as conversion factor from pixel space to world space in m.
+with 
+
+![equation](http://latex.codecogs.com/gif.latex?c_y%20%3D%20%5Cfrac%7B30%7D%7B720%7D)
+
+as conversion factor from pixel space to world space in m.
 
 ##### Distance to lane center
   
@@ -204,7 +208,9 @@ For determining the lateral distance to the center of the lane, the function `ve
 
 It simply calculates the x position at the lower edge of the image for both lane lines. Based on both lane line x-positions, the center between left and right line is calculated and compared to the image center. 
 
-The result is a distance in pixel, which has to be converted to real world space in meters using the coefficient $$ c_y = \frac{3.7}{700}$$. 
+The result is a distance in pixel, which has to be converted to real world space in meters using the coefficient 
+
+![equation](http://latex.codecogs.com/gif.latex?c_y%20%3D%20%5Cfrac%7B3.7%7D%7B720%7D)
 
 **Convention:** Negative numbers correspond to being left to the lane center.
 
@@ -255,3 +261,7 @@ The following points would be on my To-Do-List, if I was going to improved the c
 5. **Rely more on gradient detection**: Reduce thresholding at HSL / Gray image and rely more on thresholds for gradients. This should help improve detection in darker image portions.  
 
 It would be probably very helpful and a lot of fun to spend additional time into this project, realizing the above steps.  
+
+
+### Further comments
+LaTeX commands were parsed with http://www.codecogs.com/latex/eqneditor.php. 
